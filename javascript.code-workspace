@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "../Dice game"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "javascript",
+    "liveServer.settings.port": 5502
+  }
+}
