@@ -1,5 +1,6 @@
 //get all our elements and we're assigning them to a variable
 const buttonMain = document.getElementById('main');
+const table = document.getElementById('table');
 const buttonOne = document.getElementById('add-user');
 const buttonTwo = document.getElementById('double');
 const buttonThree = document.getElementById('show-millionaires');
@@ -24,10 +25,10 @@ function getRandomUser() {
 
 
         const newUser = {
-            name: `${user.name.first} ${user.name.last}`,
-            dob: `${user.dob.age}`,
+            name: `${user.name.title} ${user.name.first} ${user.name.last}`,
+            dob: `${user.dob.age} years`,
             location:`${user.location.city}`,
-            money: Math.floor(Math.random() * 1000000),
+            money: `$ ${Math.floor(Math.random() * 1000000)}`,
             img: user.picture.thumbnail
         }
 
@@ -73,19 +74,20 @@ function calculateWealth(){
 
 //updating the DOM
 function updateDOM(providedData = data) {
-    main.innerHTML = '<h2><strong>Person</strong> <strong> Age </strong> <strong> Location </strong> <strong> Wealth </strong></h2>'
+    // main.innerHTML = '<h2><strong> Photo </strong> <strong> Person </strong> <strong> Age </strong> <strong> Location </strong> <strong> Wealth </strong></h2>'
 
     providedData.forEach(function(item){
-        const element = document.createElement('div');
-        element.classList.add('person');
+        const element = document.createElement('tr');
+        // element.classList.add('person');
         element.innerHTML = `
-        <img src="${item.img}"/>
-        <strong>${item.name}</strong>
-         <strong>${item.dob}</strong> 
-         <strong>${item.location}</strong>
-         $${item.money}`
+        <td><img style="border-radius: 50%" src=${item.img} /></td>
+        <td>${item.name}</td>
+         <td><strong>${item.dob}</strong></td>
+         <td><strong>${item.location}</strong></td>
+         <td>${item.money}</td>
+         `
 
-        main.appendChild(element);
+        table.appendChild(element);
     })
 }
 
